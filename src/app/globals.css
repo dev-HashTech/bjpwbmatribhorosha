@@ -3,25 +3,34 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-inter: "Inter", sans-serif;
+  --font-noto-bengali: "Noto Sans Bengali", sans-serif;
+  --font-plus-jakarta: "Plus Jakarta Sans", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f6c285;
+  font-family: var(--font-noto-bengali), var(--font-inter), sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Bengali text rendering */
+.bengali {
+  font-family: var(--font-noto-bengali), sans-serif;
+}
+
+/* Scrollbar hidden for clean mobile look */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Input focus outline override */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #c67c25;
 }

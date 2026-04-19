@@ -80,7 +80,7 @@ export default function SuccessScreen({ data }: { data: SuccessData }) {
         {pdfState === "pending" || pdfState === "generating" ? (
           <div className="flex items-center gap-2 text-[#6b4c2a] text-[13px] font-noto-bengali">
             <div className="h-5 w-5 rounded-full border-2 border-[#f76223] border-t-transparent animate-spin" />
-            {pdfState === "pending" ? "কার্ড প্রস্তুত হচ্ছে…" : "PDF তৈরি হচ্ছে…"}
+            {pdfState === "pending" ? "কার্ড প্রস্তুত হচ্ছে…" : "কার্ড তৈরি হচ্ছে…"}
           </div>
         ) : pdfState === "done" ? (
           <div className="flex flex-col items-center gap-3">
@@ -89,7 +89,7 @@ export default function SuccessScreen({ data }: { data: SuccessData }) {
                 <circle cx="9" cy="9" r="9" fill="#01a650" />
                 <path d="M5 9l3 3 5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              PDF ডাউনলোড হয়েছে
+              কার্ড ডাউনলোড হয়েছে
             </div>
             <button
               onClick={runGenerate}
@@ -100,7 +100,7 @@ export default function SuccessScreen({ data }: { data: SuccessData }) {
           </div>
         ) : (
           <div className="flex flex-col items-center gap-3">
-            <p className="text-red-500 text-[13px] font-noto-bengali">PDF তৈরিতে সমস্যা হয়েছে।</p>
+            <p className="text-red-500 text-[13px] font-noto-bengali">কার্ড তৈরিতে সমস্যা হয়েছে।</p>
             <button
               onClick={runGenerate}
               className="rounded-[40px] bg-[#f76223] px-6 py-2 text-white text-[14px] font-semibold font-noto-bengali"

@@ -8,10 +8,11 @@ import SuccessScreen, { type SuccessData } from "./SuccessScreen";
 interface WindowWithGtag extends Window {
   gtag?: (...args: unknown[]) => void;
 }
+const GA_EVENT_PREFIX = "wb_mgc_";
 function captureEvent(event: string, props?: Record<string, unknown>) {
   try {
     if (typeof window !== "undefined" && (window as WindowWithGtag).gtag) {
-      (window as WindowWithGtag).gtag!("event", event, props ?? {});
+      (window as WindowWithGtag).gtag!("event", `${GA_EVENT_PREFIX}${event}`, props ?? {});
     }
   } catch { /* analytics must never break the form */ }
 }

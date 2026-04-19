@@ -1,16 +1,7 @@
-export interface PdfSubmissionData {
-  form_no: number;
-  name: string;
-  mobile: string;
-  address: string;
-  date: string;
-}
-
 export async function generatePdf(
   page1El: HTMLElement,
   page2El: HTMLElement,
-  filename = "matrishakti-bharosa-card.pdf",
-  _data?: PdfSubmissionData
+  filename = "matrishakti-bharosa-card.pdf"
 ) {
   if (!page1El || !page2El) return;
 

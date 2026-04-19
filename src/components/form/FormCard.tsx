@@ -54,7 +54,7 @@ function FigmaCrop({ src, alt = "", containerStyle, imgWidthPct, imgHeightPct, i
 export default function FormCard() {
   const [form, setForm] = useState<FormData>({ name: "", mobile: "", address: "" });
   const [errors, setErrors] = useState<FormErrors>({});
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [, setSubmitError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState<SuccessData | null>(null);
   const [formNo, setFormNo] = useState<number | null>(null);

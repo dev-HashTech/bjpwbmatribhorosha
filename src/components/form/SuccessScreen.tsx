@@ -26,8 +26,7 @@ export default function SuccessScreen({ data }: { data: SuccessData }) {
       await generatePdf(
         page1Ref.current,
         page2Ref.current,
-        `matrishakti-bharosa-card-${data.form_no}.pdf`,
-        data
+        `matrishakti-bharosa-card-${data.form_no}.pdf`
       );
       setPdfState("done");
     } catch (err) {

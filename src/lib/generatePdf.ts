@@ -5,10 +5,11 @@ export async function generatePdf(
 ) {
   if (!page1El || !page2El) return;
 
+  const fontsReady = document.fonts?.ready ?? Promise.resolve();
   const [{ domToJpeg }, { default: jsPDF }] = await Promise.all([
     import("modern-screenshot"),
     import("jspdf"),
-    document.fonts.ready,
+    Promise.race([fontsReady, new Promise((r) => setTimeout(r, 2000))]),
   ]);
 
   const opts = {

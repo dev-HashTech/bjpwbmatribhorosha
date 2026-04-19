@@ -69,18 +69,6 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true, form_no: rows[0].form_no }, { status: 200 });
   } catch (err: unknown) {
-    // Duplicate mobile (unique constraint violation)
-    if (
-      typeof err === "object" &&
-      err !== null &&
-      "code" in err &&
-      (err as { code: string }).code === "23505"
-    ) {
-      return NextResponse.json(
-        { error: "এই মোবাইল নম্বরটি ইতিমধ্যে নথিভুক্ত হয়েছে।" },
-        { status: 409 }
-      );
-    }
     console.error("[SUBMIT_ERROR]", err);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
